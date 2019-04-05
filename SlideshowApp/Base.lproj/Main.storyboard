@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +12,123 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="SlideshowApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Cfs-in-czN">
+                                <rect key="frame" x="50" y="94" width="314" height="618"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="eFs-Uh-cur" appends="YES" id="oDN-Ta-ZOV"/>
+                                </connections>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Uec-3U-3Md">
+                                <rect key="frame" x="50" y="722" width="314" height="110"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hQl-fF-9cI">
+                                        <rect key="frame" x="0.0" y="0.0" width="314" height="30"/>
+                                        <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="進む"/>
+                                        <connections>
+                                            <action selector="showNextImg:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bFS-6f-ge1"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U7v-Ai-QKk">
+                                        <rect key="frame" x="0.0" y="40" width="314" height="30"/>
+                                        <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="戻る"/>
+                                        <connections>
+                                            <action selector="showPreviousImg:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5kv-em-RVu"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aMM-yM-PiA">
+                                        <rect key="frame" x="0.0" y="80" width="314" height="30"/>
+                                        <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="再生"/>
+                                        <connections>
+                                            <action selector="startStopBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="U5U-eu-hQA"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="Uec-3U-3Md" firstAttribute="trailing" secondItem="Cfs-in-czN" secondAttribute="trailing" id="MPW-kf-xgy"/>
+                            <constraint firstItem="Uec-3U-3Md" firstAttribute="top" secondItem="Cfs-in-czN" secondAttribute="bottom" constant="10" id="SXq-ps-THF"/>
+                            <constraint firstItem="Cfs-in-czN" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="ZKE-NI-rfy"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Cfs-in-czN" secondAttribute="trailing" constant="50" id="bcl-Uk-Jar"/>
+                            <constraint firstItem="Cfs-in-czN" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="jCm-c2-bCF"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Uec-3U-3Md" secondAttribute="bottom" constant="30" id="kib-cr-eqV"/>
+                            <constraint firstItem="Uec-3U-3Md" firstAttribute="leading" secondItem="Cfs-in-czN" secondAttribute="leading" id="sHC-Bj-MBR"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="eFs-Uh-cur" appends="YES" id="9Ag-cq-kej"/>
+                        </connections>
                     </view>
+                    <connections>
+                        <outlet property="imageView" destination="Cfs-in-czN" id="bfK-mn-z48"/>
+                        <outlet property="nextButton" destination="hQl-fF-9cI" id="VMS-yw-Jwa"/>
+                        <outlet property="previousButton" destination="U7v-Ai-QKk" id="JFP-BD-bPH"/>
+                        <outlet property="startStopButton" destination="aMM-yM-PiA" id="DQS-rI-7cx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="eFs-Uh-cur">
+                    <connections>
+                        <segue destination="jm5-t7-7Vh" kind="show" id="grC-fT-PbQ"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
+            <point key="canvasLocation" x="-825" y="-545"/>
+        </scene>
+        <!--Result View Controller-->
+        <scene sceneID="DHa-8c-Ynd">
+            <objects>
+                <viewController id="jm5-t7-7Vh" customClass="ResultViewController" customModule="SlideshowApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="MdF-8f-cRi">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Txa-TD-Kcm">
+                                <rect key="frame" x="50" y="822" width="314" height="30"/>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="VaN-aP-VoK"/>
+                                </constraints>
+                                <state key="normal" title="戻る"/>
+                                <connections>
+                                    <segue destination="NuF-Ni-ROq" kind="unwind" unwindAction="unwind:" id="QWa-fe-L1r"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aJ7-fL-iqH">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="802"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="p0R-1v-GBD" firstAttribute="trailing" secondItem="Txa-TD-Kcm" secondAttribute="trailing" constant="50" id="3ai-HK-VVn"/>
+                            <constraint firstItem="Txa-TD-Kcm" firstAttribute="top" secondItem="aJ7-fL-iqH" secondAttribute="bottom" constant="20" id="7XC-yj-b6L"/>
+                            <constraint firstItem="Txa-TD-Kcm" firstAttribute="leading" secondItem="p0R-1v-GBD" secondAttribute="leading" constant="50" id="86H-cE-kbp"/>
+                            <constraint firstItem="aJ7-fL-iqH" firstAttribute="top" secondItem="MdF-8f-cRi" secondAttribute="top" id="BMU-t8-coV"/>
+                            <constraint firstItem="aJ7-fL-iqH" firstAttribute="leading" secondItem="p0R-1v-GBD" secondAttribute="leading" id="M7m-U9-HbI"/>
+                            <constraint firstItem="p0R-1v-GBD" firstAttribute="bottom" secondItem="Txa-TD-Kcm" secondAttribute="bottom" constant="10" id="Xln-ii-iiS"/>
+                            <constraint firstItem="aJ7-fL-iqH" firstAttribute="trailing" secondItem="p0R-1v-GBD" secondAttribute="trailing" id="Y04-jw-ULY"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="p0R-1v-GBD"/>
+                    </view>
+                    <connections>
+                        <outlet property="imageView2" destination="aJ7-fL-iqH" id="SQC-jN-AAd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GAK-da-nKX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="NuF-Ni-ROq" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="-75.362318840579718" y="-536.38392857142856"/>
         </scene>
     </scenes>
 </document>
